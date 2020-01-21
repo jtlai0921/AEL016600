@@ -1,0 +1,17 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>繪圖功能</title>	
+  </head>	
+  <body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+	<script>
+	  var canvas = document.getElementById("myCanvas");
+	  var context = canvas.getContext("2d");
+	  context.beginPath();
+	  context.arc(100, 100, 50, 0, 180 * Math.PI / 180, false);
+	  context.stroke();	  
+    </script>
+  </body>
+</html>

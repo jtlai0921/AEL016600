@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>繪圖功能</title>	
+  </head>	
+  <body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+	<script>
+	  var canvas = document.getElementById("myCanvas");
+	  var context = canvas.getContext("2d");
+	  //設定線性漸層
+	  var gradient = context.createLinearGradient(0, 0, 100, 0);
+	  //設定漸層起點為藍色
+	  gradient.addColorStop(0.0, "blue");
+	  //設定漸層終點為白色
+	  gradient.addColorStop(1.0, "white");	  
+	  //將填滿樣式指派為前面設定的漸層
+	  context.fillStyle = gradient;
+	  //使用前面設定的漸層填滿矩形
+	  context.fillRect(0, 0, 100, 100);
+    </script>
+  </body>
+</html>

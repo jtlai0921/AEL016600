@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>繪圖功能</title>	
+  </head>	
+  <body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+	<script>
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+	  context.translate(100, 100);
+	  for (var i = 0; i < 36; i++){	    
+	    context.strokeRect(0, 0, 70, 70);
+	    context.rotate(10 * Math.PI / 180);
+	  }	  
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>繪圖功能</title>	
+  </head>	
+  <body>
+    <canvas id="myCanvas" width="500" height="300"></canvas>
+	<script>
+      var canvas = document.getElementById("myCanvas");
+      var context = canvas.getContext("2d");
+	  context.font = "italic bold 30px 新細明體";
+	  context.textAlign = "start";
+	  context.strokeText("HTML5網頁程式設計", 200, 50);
+	  context.textAlign = "center";
+	  context.fillText("HTML5網頁程式設計", 200, 150);
+    </script>
+  </body>
+</html>

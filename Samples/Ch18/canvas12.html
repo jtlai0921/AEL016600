@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>繪圖功能</title>	
+  </head>	
+  <body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+	<script>
+	  var canvas = document.getElementById("myCanvas");
+	  var context = canvas.getContext("2d");
+	  context.beginPath();
+	  context.moveTo(0, 100);
+	  context.arc(120, 80, 80, 0, 360 * Math.PI / 180, true);
+	  context.clip();
+	  
+	  //建立 <img> 元素
+      var image = document.createElement("img");
+      //待圖像載入後，就在繪圖區以座標 (0, 0) 為左上角，繪製原尺寸圖像
+      image.onload = function() {
+        context.drawImage(image, 0, 0);
+      }
+      //讀取圖像
+      image.src = "bird.jpg";
+
+	  context.stroke();	  
+    </script>
+  </body>
+</html>

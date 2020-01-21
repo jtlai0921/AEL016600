@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>繪圖功能</title>	
+  </head>	
+  <body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+	<script>
+	  var canvas = document.getElementById("myCanvas");
+	  var context = canvas.getContext("2d");
+	  //建立 <img> 元素
+	  var image = document.createElement("img");
+	  //待圖像載入完畢後，就設定填滿樣式，再填滿整個繪圖區
+	  image.onload = function() {
+	    context.fillStyle = context.createPattern(this, "repeat");
+		context.fillRect(0, 0, canvas.width, canvas.height);
+	  }
+	  //讀取圖像
+	  image.src = "blue.jpg";
+    </script>
+  </body>
+</html>

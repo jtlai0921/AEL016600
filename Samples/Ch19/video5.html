@@ -1,0 +1,22 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>影音多媒體</title>
+	<script>
+	  function playVideo() {
+	    var myVideoURL = document.getElementById("myVideoURL").value;
+		var myVideo = document.getElementById("myVideo");
+		myVideo.src = myVideoURL;
+		myVideo.controls = true;
+		myVideo.load();
+		myVideo.play();
+	  }
+	</script>
+  </head>	
+  <body>
+    輸入影片的網址：<input type="text" id="myVideoURL">
+	<input type="button" value="播放" onclick="playVideo()">
+	<video id="myVideo"></video>
+  </body>
+</html>

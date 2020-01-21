@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>函式範例</title>
+    <script language="javascript">
+  function Calculate(StartNum, EndNum)
+  {
+    return (Number(StartNum) + Number(EndNum)) * (EndNum - StartNum + 1) / 2;
+  }
+  var Num1 = prompt("請輸入起始數字", "");
+  var Num2 = prompt("請輸入終止數字", "");
+  var Result = Calculate(Num1, Num2);
+  alert("起始數字累加到終止數字的總和為" + Result);
+  </script>
+  </head>
+  <body>
+  </body>
+</html>

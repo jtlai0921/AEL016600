@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>嵌入vbscript</title>    
+  </head>
+  <body>
+    <script language="vbscript">
+      sub showans(tips)
+        document.all(tips).style.visibility=show
+      end sub
+	  
+      sub hideans(tips)
+        document.all(tips).style.visibility="hidden"
+      end sub
+    </script>
+    <p onmousemove="showans('ans_1')" onmouseout="hideans('ans_1')">飲食男女</p>
+    <p onmousemove="showans('ans_2')" onmouseout="hideans('ans_2')">臥虎藏龍</p>
+    <p onmousemove="showans('ans_3')" onmouseout="hideans('ans_3')">色戒</p>
+    <p id="ans_1" style="position:absolute;left:100px;top:15px;visibility:hidden;color:red">
+    導演李安經典作品</p>
+    <p id="ans_2" style="position:absolute;left:100px;top:60px;visibility:hidden;color:green">
+    導演李安武俠鉅獻</p>
+    <p id="ans_3" style="position:absolute;left:100px;top:100px;visibility:hidden;color:blue">
+    導演李安問鼎威尼斯影展力作</p>
+  </body>
+</html>

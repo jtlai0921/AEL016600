@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>繪圖功能</title>	
+  </head>	
+  <body>
+    <canvas id="myCanvas" width="400" height="300"></canvas>
+	<script>
+	  var canvas = document.getElementById("myCanvas");
+	  var context = canvas.getContext("2d");
+	  var image = document.createElement("img");
+	  image.onload = function() {
+	    context.drawImage(image, 0, 0);
+		var pixels = context.getImageData(0, 0, image.width, image.height);
+		for (var i = 0; i < pixels.data.length; i += 4){
+		  pixels.data[i] = 255 - pixels.data[i];
+		  pixels.data[i + 1] = 255 - pixels.data[i + 1];
+		  pixels.data[i + 2] = 255 - pixels.data[i + 2];
+		}
+		context.putImageData(pixels, 0, 0);		
+	  }
+	  image.src = "bird.jpg";
+    </script>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>拖放操作</title>
+  </head>
+  <body>
+    <p>你喜歡哪項運動？</p>
+    <ul ondragstart="dragStartHandler(event)" ondragend="dragEndHandler(event)">
+      <li draggable="true" data-sport="baseball">棒球</li>
+      <li draggable="true" data-sport="baseketball">籃球</li>
+      <li draggable="true" data-sport="tennis">網球</li>
+    </ul>
+
+    <script>
+      function dragStartHandler(event) {
+        //檢查產生dragstart事件的元素是否為 <li> 元素
+        if (event.target instanceof HTMLLIElement) {
+          //將拖曳來源的資料 (data-sport屬性的值) 放進DataTransfer物件
+          event.dataTransfer.setData('text/plain', event.target.dataset.sport);
+          //設定允許搬移的動作
+          event.dataTransfer.effectAllowed = 'move';
+        } else {
+          //取消不是 <li> 元素的拖放操作
+          event.preventDefault(); 
+        }
+      }
+
+      function dragEndHandler(event) {
+        //移除被拖曳的元素
+        event.target.parentNode.removeChild(event.target);
+      } 	  
+    </script>
+	
+	<p dropzone="move string:text/plain" ondrop="dropHandler(event)">
+	將您最喜歡的運動拖曳到此處：</p>
+    
+	<script>
+      function dropHandler(event) {
+        var destination = document.createElement('i');
+        var data = event.dataTransfer.getData('text/plain');
+        if (data == 'baseball') {
+          destination.innerHTML = '棒球';
+        } else if (data == 'baseketball') {
+          destination.innerHTML = '籃球';
+        } else if (data == 'tennis') {
+          destination.innerHTML = '網球';
+        } else {
+          destination.innerHTML = '其它運動';
+        }
+        event.target.appendChild(destination);
+      }
+    </script>
+  </body>
+</html>
+
+

@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+	<title>影音多媒體</title>
+	<script>
+	  function playVideo() {
+	    var myVideoURL = document.getElementById("myVideoURL").value;
+		var myVideo = document.getElementById("myVideo");
+		myVideo.src = myVideoURL;
+		myVideo.controls = true;
+		myVideo.load();
+		myVideo.play();
+		
+		myVideo.addEventListener("ended", function() {
+		  var showTime = document.getElementById("showTime");		
+	      showTime.innerHTML = "影片播放時間為" + myVideo.duration + "秒"; 
+		}, false);	
+	  }	  
+	</script>
+  </head>	
+  <body>
+    輸入影片的網址：<input type="text" id="myVideoURL">
+	<input type="button" value="播放" onclick="playVideo()">
+	<video id="myVideo"></video>
+	<p id="showTime"></p>
+  </body>
+</html>

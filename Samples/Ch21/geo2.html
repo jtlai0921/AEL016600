@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Geolocation API</title>
+	<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false">
+	</script>
+    <script>
+	   //呼叫watchPosition() 方法持續追蹤使用者的位置
+      var watchId = navigator.geolocation.watchPosition(geoSuccess);
+      
+	  //在成功取得位置資訊時，呼叫geoSuccess() 函式
+	  function geoSuccess(position){
+	    document.getElementById("msg").innerHTML = "緯度：" + position.coords.latitude + 
+		                                           "\t經度：" + position.coords.longitude;
+	  }
+	  
+      //呼叫clearWatch() 方法取消持續追蹤使用者的位置
+      navigator.geolocation.clearWatch(watchId);
+	</script>
+  </head>
+  <body>
+    <p id="msg"></p>	
+  </body>
+</html>
+
+
+
